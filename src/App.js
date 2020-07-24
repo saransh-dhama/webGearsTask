@@ -1,26 +1,16 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+import { ThemeProvider } from 'styled-components';
+import { Constants } from './utils/theme/themeConstants';
+import Layout from './hoc/layout';
+import { StateProvider } from './store';
+const App = () => {
+	return (
+		<StateProvider>
+			<ThemeProvider theme={Constants}>
+				<Layout />
+			</ThemeProvider>
+		</StateProvider>
+	);
+};
 
 export default App;
