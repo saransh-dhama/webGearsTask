@@ -1,4 +1,5 @@
 import React from 'react';
+import { func, array } from 'prop-types';
 import { ElevatedBox, HeadingLabel } from '../../uiComponents';
 import styled from 'styled-components';
 import EachItem from './eachItem';
@@ -12,6 +13,8 @@ const Price = styled.h4`
 	font-size: 1.3rem;
 	margin-top: 15px;
 	color: ${(props) => props.theme.secondaryColor};
+	padding-right: 30px;
+	padding-bottom: 15px;
 `;
 const EmptyCart = styled.p`
 	text-align: center;
@@ -48,5 +51,8 @@ const Cart = ({ products, dispatch }) => {
 		</CartSection>
 	);
 };
-
+Cart.propTypes = {
+	products: array.isRequired,
+	dispatch: func.isRequired,
+};
 export default Cart;

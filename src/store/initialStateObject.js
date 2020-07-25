@@ -10,7 +10,7 @@ export default {
 		},
 		{
 			id: '002',
-			title: 'black Lipstick',
+			title: 'Black Lipstick',
 			price: 20,
 			productImage: 'https://picsum.photos/200/300?image=1027',
 			description: 'This is a very cool red Lipstick, some would call it ruby',
@@ -18,7 +18,7 @@ export default {
 		},
 		{
 			id: '003',
-			title: 'green Lipstick',
+			title: 'Green Lipstick',
 			price: 10,
 			productImage: 'https://picsum.photos/200/300?image=1027',
 			description: 'This is a very cool red Lipstick, some would call it ruby',

@@ -6,6 +6,7 @@ const HeadingH2 = styled.h2`
 	text-align: center;
 	font-size: 1.5rem;
 	font-weight: ${(props) => props.theme.fontBold};
+	margin-bottom: 30px;
 `;
 const HeadingLabel = ({ className, children }) => (
 	<HeadingH2 className={className}>{children}</HeadingH2>

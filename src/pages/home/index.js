@@ -21,7 +21,7 @@ const AProductPage = ({ globalState, dispatch }) => {
 		<ProductPageSection>
 			<Products products={globalState.products} dispatch={dispatch} />
 			<Cart products={globalState.products} dispatch={dispatch} />
-			<Inventory />
+			<Inventory products={globalState.products} dispatch={dispatch} />
 		</ProductPageSection>
 	);
 };

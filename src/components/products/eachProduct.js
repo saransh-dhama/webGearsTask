@@ -1,12 +1,12 @@
 import React from 'react';
+import { shape, string, number, func } from 'prop-types';
 import styled from 'styled-components';
 const Product = styled.div`
 	display: grid;
 	grid-template-columns: 110px 1fr;
 	grid-column-gap: 15px;
-	margin-top: 30px;
-	border-bottom: 1px solid #6d6d6d;
-	padding-bottom: 30px;
+	border-bottom: 1px solid ${(props) => props.theme.background};
+	padding: 15px 15px 30px 15px;
 	&:hover {
 		button {
 			background-color: ${(props) => props.theme.primaryColor};
@@ -63,4 +63,13 @@ const EachProduct = ({ product, addToCart }) => {
 	);
 };
 
+EachProduct.propTypes = {
+	product: shape({
+		title: string.isRequired,
+		price: number.isRequired,
+		productImage: string.isRequired,
+		description: string.isRequired,
+	}).isRequired,
+	addToCart: func.isRequired,
+};
 export default EachProduct;

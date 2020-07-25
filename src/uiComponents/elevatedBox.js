@@ -4,7 +4,7 @@ import { any, string } from 'prop-types';
 
 const Box = styled.div`
 	background: ${(props) => props.theme.elevated};
-	padding: 15px;
+	padding-top: 15px;
 	border-radius: 4px;
 `;
 const ElevatedBox = ({ className, children }) => (

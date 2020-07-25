@@ -1,4 +1,5 @@
 import React from 'react';
+import { func, array } from 'prop-types';
 import styled from 'styled-components';
 import { ElevatedBox, HeadingLabel } from '../../uiComponents';
 import EachProduct from './eachProduct';
@@ -30,6 +31,10 @@ const Products = ({ products, dispatch }) => {
 			</ElevatedBox>
 		</ProductsSection>
 	);
+};
+Products.propTypes = {
+	products: array.isRequired,
+	dispatch: func.isRequired,
 };
 
 export default Products;

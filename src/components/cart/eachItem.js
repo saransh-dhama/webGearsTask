@@ -1,16 +1,16 @@
 import React from 'react';
+import { shape, string, number, func } from 'prop-types';
 import styled from 'styled-components';
 const Item = styled.div`
 	display: grid;
 	grid-template-columns: 1fr;
 	grid-column-gap: 15px;
-	margin-top: 30px;
-	border-bottom: 1px solid #6d6d6d;
-	padding-bottom: 10px;
+	border-bottom: 1px solid ${(props) => props.theme.background};
+	padding: 15px 15px 10px 15px;
 `;
 const ItemInfo = styled.div`
 	display: grid;
-	grid-template-columns: 1fr 30px;
+	grid-template-columns: 1fr 15px;
 	grid-template-rows: 26px 26px;
 	grid-column-gap: 15px;
 	grid-row-gap: 5px;
@@ -54,7 +54,7 @@ const ReduceItemQunatity = styled.button`
 		background-color: ${(props) => props.theme.secondaryColor};
 	}
 `;
-const EachProduct = ({ product, remove, reduce }) => {
+const EachItem = ({ product, remove, reduce }) => {
 	return (
 		<Item className='each_item_in_cart'>
 			<ItemInfo>
@@ -77,5 +77,14 @@ const EachProduct = ({ product, remove, reduce }) => {
 		</Item>
 	);
 };
-
-export default EachProduct;
+EachItem.propTypes = {
+	product: shape({
+		title: string.isRequired,
+		price: number.isRequired,
+		productImage: string.isRequired,
+		description: string.isRequired,
+	}).isRequired,
+	remove: func.isRequired,
+	reduce: func.isRequired,
+};
+export default EachItem;
