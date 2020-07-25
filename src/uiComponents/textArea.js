@@ -19,7 +19,7 @@ const TextArea = ({
 	id,
 	value,
 	className,
-	handleClick,
+	onKeyUpHandler,
 	handleChange,
 	inputWidth,
 }) => {
@@ -30,7 +30,7 @@ const TextArea = ({
 			id={id}
 			value={value}
 			className={className}
-			onClick={handleClick}
+			onKeyUp={onKeyUpHandler}
 			onChange={(e) => handleChange(e.target.value)}
 			inputWidth={inputWidth}
 		/>

@@ -20,7 +20,7 @@ const Input = ({
 	type,
 	value,
 	className,
-	handleClick,
+	onKeyUpHandler,
 	handleChange,
 	inputWidth,
 }) => {
@@ -32,7 +32,7 @@ const Input = ({
 			type={type}
 			value={value}
 			className={className}
-			onClick={handleClick}
+			onKeyUp={onKeyUpHandler}
 			onChange={(e) => handleChange(e.target.value)}
 			inputWidth={inputWidth}
 		/>

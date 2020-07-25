@@ -43,6 +43,40 @@ const reducer = (state = InitialState, action) => {
 					return [...allProducts];
 				})(),
 			};
+		case 'UPDATE_PRODUCT':
+			return {
+				...state,
+				products: (function (value = action.newValue) {
+					const allProducts = state.products;
+					const index = allProducts.findIndex(
+						(productInState) => productInState.id === value.id
+					);
+					allProducts[index] = { ...value };
+					return [...allProducts];
+				})(),
+			};
+		case 'ADD_NEW_PRODUCT':
+			return {
+				...state,
+				products: (function (value = action.newValue) {
+					const allProducts = state.products;
+					const idForNewItem = allProducts.length;
+					value.id = idForNewItem;
+					return [...allProducts, value];
+				})(),
+			};
+		case 'DELETE_PRODUCT':
+			return {
+				...state,
+				products: (function (id = action.id) {
+					const allProducts = state.products;
+					const index = allProducts.findIndex(
+						(productInState) => productInState.id === id
+					);
+					allProducts.splice(index, 1);
+					return [...allProducts];
+				})(),
+			};
 		default:
 			return state;
 	}

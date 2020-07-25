@@ -1,5 +1,5 @@
 export const Constants = {
-	primaryColor: '#487dbd',
+	primaryColor: '#57a3ff',
 	secondaryColor: '#E18726',
 	background: '#2F2F31',
 	elevated: '#504F4E',

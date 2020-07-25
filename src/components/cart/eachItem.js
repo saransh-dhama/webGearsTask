@@ -29,7 +29,7 @@ const Title = styled.h3`
 	font-size: 1.2rem;
 	span {
 		float: right;
-		color: ${(props) => props.theme.secondaryColor};
+		color: ${(props) => props.theme.primaryColor};
 	}
 `;
 
@@ -37,7 +37,7 @@ const Quantity = styled.p`
 	font-size: 1.2rem;
 	span {
 		float: right;
-		color: ${(props) => props.theme.secondaryColor};
+		color: ${(props) => props.theme.primaryColor};
 	}
 `;
 const ReduceItemQunatity = styled.button`

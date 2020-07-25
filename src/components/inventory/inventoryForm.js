@@ -22,11 +22,24 @@ const Button = styled.button`
 	width: 100%;
 	height: 40px;
 `;
-const InventoryForm = ({ product, buttonText }) => {
+const InventoryForm = ({
+	product,
+	buttonText,
+	onKeyUpHandler,
+	onButtonClick,
+}) => {
 	const [title, setTitle] = useState(product.title);
 	const [price, setPrice] = useState(product.price);
 	const [productImage, setProductImage] = useState(product.productImage);
 	const [description, setDescription] = useState(product.description);
+	const newValue = {
+		id: product.id,
+		title: title,
+		price: parseInt(price),
+		productImage: productImage,
+		description: description,
+		orderQuantity: product.orderQuantity,
+	};
 	return (
 		<InventoryFormDiv>
 			<form>
@@ -38,6 +51,7 @@ const InventoryForm = ({ product, buttonText }) => {
 					value={title}
 					field='title'
 					handleChange={setTitle}
+					onKeyUpHandler={() => onKeyUpHandler(newValue)}
 					inputWidth={60}
 				/>
 				<Input
@@ -48,6 +62,7 @@ const InventoryForm = ({ product, buttonText }) => {
 					value={`${price}`}
 					field='price'
 					handleChange={setPrice}
+					onKeyUpHandler={() => onKeyUpHandler(newValue)}
 					inputWidth={30}
 				/>
 				<Input
@@ -57,6 +72,7 @@ const InventoryForm = ({ product, buttonText }) => {
 					placeholder='Image URL'
 					value={productImage}
 					handleChange={setProductImage}
+					onKeyUpHandler={() => onKeyUpHandler(newValue)}
 					inputWidth={100}
 				/>
 				<TextArea
@@ -65,9 +81,12 @@ const InventoryForm = ({ product, buttonText }) => {
 					placeholder='Product Description'
 					value={description}
 					handleChange={setDescription}
+					onKeyUpHandler={() => onKeyUpHandler(newValue)}
 					inputWidth={100}
 				/>
-				<Button>{buttonText}</Button>
+				<Button type='button' onClick={() => onButtonClick(newValue)}>
+					{buttonText}
+				</Button>
 			</form>
 		</InventoryFormDiv>
 	);

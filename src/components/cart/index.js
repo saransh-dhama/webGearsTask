@@ -12,7 +12,7 @@ const Price = styled.h4`
 	text-align: right;
 	font-size: 1.3rem;
 	margin-top: 15px;
-	color: ${(props) => props.theme.secondaryColor};
+	color: ${(props) => props.theme.primaryColor};
 	padding-right: 30px;
 	padding-bottom: 15px;
 `;
