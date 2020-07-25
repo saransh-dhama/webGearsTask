@@ -1,21 +1,32 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { ElevatedBox, HeadingLabel } from '../../uiComponents';
 import EachProduct from './eachProduct';
+import { addToCart } from '../../store/actions';
 const ProductsSection = styled.section`
 	grid-area: listOfProducts;
 `;
 
-const Products = () => {
+const Products = ({ products, dispatch }) => {
 	return (
 		<ProductsSection>
 			<ElevatedBox className='product_elevated'>
 				<HeadingLabel className='product_list_heading'>
 					List of Products
 				</HeadingLabel>
-				<EachProduct />
-				<EachProduct />
-				<EachProduct />
+				{products.length ? (
+					products.map((product) => {
+						return (
+							<EachProduct
+								key={product.id}
+								product={product}
+								addToCart={() => dispatch(addToCart(product))}
+							/>
+						);
+					})
+				) : (
+					<span>No products found</span>
+				)}
 			</ElevatedBox>
 		</ProductsSection>
 	);

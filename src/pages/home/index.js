@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import Products from '../../components/products';
 import Cart from '../../components/cart';
@@ -17,17 +17,10 @@ const ProductPageSection = styled.article`
 	grid-template-areas: 'listOfProducts shoppingCart inventory';
 `;
 const AProductPage = ({ globalState, dispatch }) => {
-	console.log(globalState);
-	useEffect(() => {
-		dispatch({
-			type: 'TEST',
-			data: 'this is a test',
-		});
-	}, [dispatch]);
 	return (
 		<ProductPageSection>
-			<Products />
-			<Cart />
+			<Products products={globalState.products} dispatch={dispatch} />
+			<Cart products={globalState.products} dispatch={dispatch} />
 			<Inventory />
 		</ProductPageSection>
 	);

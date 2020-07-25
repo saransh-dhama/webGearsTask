@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { ElevatedBox, HeadingLabel } from '../../uiComponents';
 import styled from 'styled-components';
 const InventorySection = styled.section`

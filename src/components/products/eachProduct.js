@@ -44,24 +44,20 @@ const Button = styled.button`
 	color: ${(props) => props.theme.color};
 	cursor: pointer;
 `;
-const EachProduct = () => {
+const EachProduct = ({ product, addToCart }) => {
 	return (
 		<Product className='each_product'>
 			<ProductImage
-				src='https://picsum.photos/200/300?image=1027'
-				alt='product'
+				src={product.productImage}
+				alt={product.description + ' image'}
 				className='ProductImage'
 			/>
 			<ProductInfo>
 				<Title>
-					Title of Item 1 <span>24$</span>
+					{product.title} <span>{`$` + product.price}</span>
 				</Title>
-				<Description>
-					Description lorem ipsum Lorem ipsum lorem ipsum Description lorem
-					ipsum Lorem ipsum lorem ipsum Description lorem ipsum Lorem ipsum
-					lorem ipsum
-				</Description>
-				<Button>Add to Order</Button>
+				<Description>{product.description}</Description>
+				<Button onClick={addToCart}>Add to Order</Button>
 			</ProductInfo>
 		</Product>
 	);
