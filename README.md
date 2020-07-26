@@ -3,6 +3,8 @@
 This is a coding challange for WebGears.
 This task is frontend challange based on React.
 
+You can access the demo page [here](http://saransh-dhama.github.io/webGearsTask).
+
 ## Available Scripts
 
 In the project directory, you can run:
