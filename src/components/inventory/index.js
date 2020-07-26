@@ -31,14 +31,14 @@ const EmptyProductList = styled.p`
 `;
 const emptyProductData = {
 	title: '',
-	price: 0,
+	price: '',
 	productImage: '',
 	description: '',
 	orderQuantity: 0,
 };
 const Inventory = ({ products, dispatch }) => {
 	const updateFunctionHandler = (newValue) => {
-		dispatch(updateProduct(newValue));
+		if (newValue.price && newValue.title) dispatch(updateProduct(newValue));
 	};
 	const addNewProductHandler = (newValue) => {
 		dispatch(addNewProduct(newValue));

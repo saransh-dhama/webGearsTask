@@ -21,6 +21,7 @@ const Button = styled.button`
 	cursor: pointer;
 	width: 100%;
 	height: 40px;
+	${(props) => (props.disabled ? 'opacity: 0.2' : 'opacity: 1')}
 `;
 const InventoryForm = ({
 	product,
@@ -47,18 +48,19 @@ const InventoryForm = ({
 					type='text'
 					name='title'
 					id='titleid'
-					placeholder='Product Title'
+					placeholder='Product Title (Required)'
 					value={title}
 					field='title'
 					handleChange={setTitle}
 					onKeyUpHandler={() => onKeyUpHandler(newValue)}
 					inputWidth={60}
 				/>
+				<span>$</span>
 				<Input
 					type='number'
 					name='price'
 					id='priceid'
-					placeholder='Price'
+					placeholder='Price (Required)'
 					value={`${price}`}
 					field='price'
 					handleChange={setPrice}
@@ -84,8 +86,13 @@ const InventoryForm = ({
 					onKeyUpHandler={() => onKeyUpHandler(newValue)}
 					inputWidth={100}
 				/>
-				<Button type='button' onClick={() => onButtonClick(newValue)}>
-					{buttonText}
+
+				<Button
+					type='button'
+					onClick={() => onButtonClick(newValue)}
+					disabled={!title || !price}
+				>
+					{!title || !price ? 'Fill required fields' : buttonText}
 				</Button>
 			</form>
 		</InventoryFormDiv>
