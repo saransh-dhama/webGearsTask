@@ -36,6 +36,7 @@ const Input = ({
 			onKeyUp={_.debounce(onKeyUpHandler, 300)}
 			onChange={(e) => handleChange(e.target.value)}
 			inputWidth={inputWidth}
+			autoComplete='off'
 		/>
 	);
 };

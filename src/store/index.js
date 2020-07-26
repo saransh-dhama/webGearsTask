@@ -9,7 +9,7 @@ const { Provider } = store;
 const StateProvider = ({ children }) => {
 	const [state, dispatch] = useReducer(Reducer, InitialState);
 
-	return <Provider value={{ state, dispatch }}>{children}</Provider>;
+	return <Provider value={[state, dispatch]}>{children}</Provider>;
 };
 
 StateProvider.propTypes = {
