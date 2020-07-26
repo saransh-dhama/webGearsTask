@@ -7,6 +7,8 @@ import { removeFromCart, reduceItemQunatityInCart } from '../../store/actions';
 
 const CartSection = styled.section`
 	grid-area: shoppingCart;
+	height: calc(100vh - 60px);
+	overflow-y: auto;
 `;
 const Price = styled.h4`
 	text-align: right;

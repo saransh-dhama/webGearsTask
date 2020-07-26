@@ -34,6 +34,7 @@ const TextArea = ({
 			onKeyUp={onKeyUpHandler}
 			onChange={(e) => handleChange(e.target.value)}
 			inputWidth={inputWidth}
+			rows='3'
 		/>
 	);
 };

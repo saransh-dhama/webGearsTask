@@ -6,6 +6,8 @@ import EachProduct from './eachProduct';
 import { addToCart } from '../../store/actions';
 const ProductsSection = styled.section`
 	grid-area: listOfProducts;
+	height: calc(100vh - 60px);
+	overflow-y: auto;
 `;
 const EmptyProductList = styled.p`
 	text-align: center;

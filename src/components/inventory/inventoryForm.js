@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 const InventoryFormDiv = styled.div`
 	padding: 15px;
-	border-bottom: 1px solid ${(props) => props.theme.background};
+	border-bottom: 5px solid ${(props) => props.theme.background};
 	&:hover {
 		button {
 			background-color: ${(props) => props.theme.primaryColor};

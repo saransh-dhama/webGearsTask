@@ -10,7 +10,7 @@ import styled from 'styled-components';
 import InventoryForm from './inventoryForm';
 const InventorySection = styled.section`
 	grid-area: inventory;
-	height: calc(100vh - 293px);
+	height: calc(100vh - 320px);
 	overflow-y: auto;
 	padding-bottom: 15px;
 `;
@@ -18,8 +18,9 @@ const AddNewProductDiv = styled.div`
 	position: fixed;
 	bottom: 30px;
 	margin-right: 30px;
-	background: ${(props) => props.theme.elevated};
-	border-top: 15px solid ${(props) => props.theme.background};
+	background: ${(props) => props.theme.background};
+	border: 2px solid ${(props) => props.theme.elevated};
+	margin-left: -5px;
 `;
 const EmptyProductList = styled.p`
 	text-align: center;
@@ -55,7 +56,7 @@ const Inventory = ({ products, dispatch }) => {
 							<InventoryForm
 								key={product.id}
 								product={product}
-								buttonText={'Remove Product'}
+								buttonText={'Remove ' + product.title}
 								onKeyUpHandler={updateFunctionHandler}
 								onButtonClick={deleteProductHandler}
 							/>
@@ -67,7 +68,7 @@ const Inventory = ({ products, dispatch }) => {
 				<AddNewProductDiv>
 					<InventoryForm
 						product={emptyProductData}
-						buttonText={'Add Product'}
+						buttonText={'Add New Product'}
 						onKeyUpHandler={updateFunctionHandler}
 						onButtonClick={addNewProductHandler}
 					/>

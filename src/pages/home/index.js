@@ -5,7 +5,6 @@ import Cart from '../../components/cart';
 import Inventory from '../../components/inventory';
 
 const ProductPageSection = styled.article`
-	padding-top: 80px;
 	font-size: 1rem;
 	background-color: ${(props) => props.theme.background};
 	min-height: 100vh;
