@@ -224,22 +224,22 @@ button:focus {
 }
 
 ::-webkit-scrollbar {
-	width: 9px;
-	height: 9px;
+	width: 5px;
+	height: 5px;
 }
 
 ::-webkit-scrollbar:horizontal {
-	width: 9px;
-	height: 9px;
+	width: 5px;
+	height: 5px;
 }
 
 ::-webkit-scrollbar-track {
-	background: #c6c6c6;
+	background: #2f2f31;
 }
 
 ::-webkit-scrollbar-thumb {
-	background-color: #a6a6a6;
-	border: 2px solid #c6c6c6;
+	background-color: #8d8d8d;
+	border: none;
 	border-radius: 10px;
 }
 

@@ -10,6 +10,16 @@ import styled from 'styled-components';
 import InventoryForm from './inventoryForm';
 const InventorySection = styled.section`
 	grid-area: inventory;
+	height: calc(100vh - 293px);
+	overflow-y: auto;
+	padding-bottom: 15px;
+`;
+const AddNewProductDiv = styled.div`
+	position: fixed;
+	bottom: 30px;
+	margin-right: 30px;
+	background: ${(props) => props.theme.elevated};
+	border-top: 15px solid ${(props) => props.theme.background};
 `;
 const emptyProduct = {
 	title: '',
@@ -32,12 +42,6 @@ const Inventory = ({ products, dispatch }) => {
 		<InventorySection>
 			<ElevatedBox className='inventory_elevated'>
 				<HeadingLabel className='inventory_heading'>Inventory</HeadingLabel>
-				<InventoryForm
-					product={emptyProduct}
-					buttonText={'Add Product'}
-					onKeyUpHandler={updateFunctionHandler}
-					onButtonClick={addNewProductHandler}
-				/>
 				{products.length
 					? products.map((product) => {
 							return (
@@ -51,6 +55,14 @@ const Inventory = ({ products, dispatch }) => {
 							);
 					  })
 					: ''}
+				<AddNewProductDiv>
+					<InventoryForm
+						product={emptyProduct}
+						buttonText={'Add Product'}
+						onKeyUpHandler={updateFunctionHandler}
+						onButtonClick={addNewProductHandler}
+					/>
+				</AddNewProductDiv>
 			</ElevatedBox>
 		</InventorySection>
 	);

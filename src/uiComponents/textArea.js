@@ -2,6 +2,7 @@ import React from 'react';
 import { string, func } from 'prop-types';
 import styled from 'styled-components';
 const TextAreaElement = styled.textarea`
+	font-family: inherit;
 	background: none;
 	box-shadow: none;
 	border: none;

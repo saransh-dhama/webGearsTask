@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { shape, string, number, func } from 'prop-types';
 import styled from 'styled-components';
 const Product = styled.div`
@@ -11,6 +11,10 @@ const Product = styled.div`
 		button {
 			background-color: ${(props) => props.theme.primaryColor};
 		}
+	}
+	.errorLoadingImage {
+		width: 70px;
+		justify-self: center;
 	}
 `;
 const ProductImage = styled.img`
@@ -45,12 +49,19 @@ const Button = styled.button`
 	cursor: pointer;
 `;
 const EachProduct = ({ product, addToCart }) => {
+	const ImageNotAvailable = () => {
+		setImageSrc(require('../../assets/product.svg'));
+		setclassName('errorLoadingImage');
+	};
+	const [imageSrc, setImageSrc] = useState(product.productImage);
+	const [imageclassName, setclassName] = useState(ProductImage);
 	return (
 		<Product className='each_product'>
 			<ProductImage
-				src={product.productImage}
+				src={imageSrc}
 				alt={product.description + ' image'}
-				className='ProductImage'
+				className={imageclassName}
+				onError={ImageNotAvailable}
 			/>
 			<ProductInfo>
 				<Title>

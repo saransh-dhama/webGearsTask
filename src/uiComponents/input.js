@@ -1,6 +1,7 @@
 import React from 'react';
 import { string, func } from 'prop-types';
 import styled from 'styled-components';
+import _ from 'lodash';
 const InputElement = styled.input`
 	background: none;
 	box-shadow: none;
@@ -32,7 +33,7 @@ const Input = ({
 			type={type}
 			value={value}
 			className={className}
-			onKeyUp={onKeyUpHandler}
+			onKeyUp={_.debounce(onKeyUpHandler, 300)}
 			onChange={(e) => handleChange(e.target.value)}
 			inputWidth={inputWidth}
 		/>
