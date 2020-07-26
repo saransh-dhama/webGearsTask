@@ -21,7 +21,14 @@ const AddNewProductDiv = styled.div`
 	background: ${(props) => props.theme.elevated};
 	border-top: 15px solid ${(props) => props.theme.background};
 `;
-const emptyProduct = {
+const EmptyProductList = styled.p`
+	text-align: center;
+	font-size: 1.3rem;
+	margin-top: 15px;
+	opacity: 0.2;
+	padding-bottom: 15px;
+`;
+const emptyProductData = {
 	title: '',
 	price: 0,
 	productImage: '',
@@ -42,22 +49,24 @@ const Inventory = ({ products, dispatch }) => {
 		<InventorySection>
 			<ElevatedBox className='inventory_elevated'>
 				<HeadingLabel className='inventory_heading'>Inventory</HeadingLabel>
-				{products.length
-					? products.map((product) => {
-							return (
-								<InventoryForm
-									key={product.id}
-									product={product}
-									buttonText={'Remove Product'}
-									onKeyUpHandler={updateFunctionHandler}
-									onButtonClick={deleteProductHandler}
-								/>
-							);
-					  })
-					: ''}
+				{products.length ? (
+					products.map((product) => {
+						return (
+							<InventoryForm
+								key={product.id}
+								product={product}
+								buttonText={'Remove Product'}
+								onKeyUpHandler={updateFunctionHandler}
+								onButtonClick={deleteProductHandler}
+							/>
+						);
+					})
+				) : (
+					<EmptyProductList>No products found</EmptyProductList>
+				)}
 				<AddNewProductDiv>
 					<InventoryForm
-						product={emptyProduct}
+						product={emptyProductData}
 						buttonText={'Add Product'}
 						onKeyUpHandler={updateFunctionHandler}
 						onButtonClick={addNewProductHandler}

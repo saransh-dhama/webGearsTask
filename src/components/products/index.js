@@ -7,7 +7,13 @@ import { addToCart } from '../../store/actions';
 const ProductsSection = styled.section`
 	grid-area: listOfProducts;
 `;
-
+const EmptyProductList = styled.p`
+	text-align: center;
+	font-size: 1.3rem;
+	margin-top: 15px;
+	opacity: 0.2;
+	padding-bottom: 15px;
+`;
 const Products = ({ products, dispatch }) => {
 	return (
 		<ProductsSection>
@@ -26,7 +32,7 @@ const Products = ({ products, dispatch }) => {
 						);
 					})
 				) : (
-					<span>No products found</span>
+					<EmptyProductList>No products found</EmptyProductList>
 				)}
 			</ElevatedBox>
 		</ProductsSection>

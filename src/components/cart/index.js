@@ -21,6 +21,7 @@ const EmptyCart = styled.p`
 	font-size: 1.3rem;
 	margin-top: 15px;
 	opacity: 0.2;
+	padding-bottom: 15px;
 `;
 
 const Cart = ({ products, dispatch }) => {

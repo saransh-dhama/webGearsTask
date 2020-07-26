@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { shape, string, number, func } from 'prop-types';
 import styled from 'styled-components';
 const Product = styled.div`
@@ -54,7 +54,10 @@ const EachProduct = ({ product, addToCart }) => {
 		setclassName('errorLoadingImage');
 	};
 	const [imageSrc, setImageSrc] = useState(product.productImage);
-	const [imageclassName, setclassName] = useState(ProductImage);
+	const [imageclassName, setclassName] = useState('ProductImage');
+	useEffect(() => {
+		setImageSrc(product.productImage);
+	}, [product.productImage]);
 	return (
 		<Product className='each_product'>
 			<ProductImage

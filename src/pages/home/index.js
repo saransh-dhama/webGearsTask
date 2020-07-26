@@ -16,12 +16,12 @@ const ProductPageSection = styled.article`
 	border: none;
 	grid-template-areas: 'listOfProducts shoppingCart inventory';
 `;
-const AProductPage = ({ globalState, dispatch }) => {
+const AProductPage = ({ products, dispatch }) => {
 	return (
 		<ProductPageSection>
-			<Products products={globalState.products} dispatch={dispatch} />
-			<Cart products={globalState.products} dispatch={dispatch} />
-			<Inventory products={globalState.products} dispatch={dispatch} />
+			<Products products={products} dispatch={dispatch} />
+			<Cart products={products} dispatch={dispatch} />
+			<Inventory products={products} dispatch={dispatch} />
 		</ProductPageSection>
 	);
 };
